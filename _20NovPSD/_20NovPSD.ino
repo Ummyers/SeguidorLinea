@@ -24,7 +24,7 @@ void setup() {
 void loop() {
   digitalWrite(motor_p9, 0);
   digitalWrite(motor_p10, 1);
-  delay(1000);
+
   digitalWrite(motor_p13,0);
   digitalWrite(motor_p19, 1);
 }

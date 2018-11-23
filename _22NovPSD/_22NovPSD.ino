@@ -4,13 +4,14 @@
 #define motor_p19 19
 #define motor_p13 13
 
+#define compuerta 8
 //---------INFRARROJOS------------
 //Infrarrojo Izquierda
-#define infraOS1 4
+#define infraOS1 6
 //Infrarrojo de enmedio 
-#define infraCentral  3
+#define infraCentral  5
 //Infrarrojo Derecho
-#define infraOS3 2
+#define infraOS3 4
 
 //-----------VARIABLES-------------
 //Se usaran cuando pasemos a PWD para la velocidad de los motores
@@ -30,43 +31,42 @@ void setup() {
   pinMode(infraOS1, INPUT);
   pinMode(infraCentral, INPUT);
   pinMode(infraOS3, INPUT); 
+  pinMode(compuerta, OUTPUT);
 }
 
 void loop() {
-  int  sensorCentral = analogRead(infraCentral);
-  int  sensorIzq = analogRead(infraOS1);
-  int  sensorDer = analogRead(infraOS3);
+  digitalWrite(compuerta, 1);
   
-  if((sensorIzq > 800)&&(sensorDer > 800)){
-    digitalWrite(motor_p9, 0);
-    digitalWrite(motor_p10, 1);
-    digitalWrite(motor_p13, 0);
-    digitalWrite(motor_p19, 1);
-  }else{
-    digitalWrite(motor_p9, 0);
-    digitalWrite(motor_p10, 1);
-    digitalWrite(motor_p13,1);
-    digitalWrite(motor_p19, 0);
-  }
-}
-
-//----------METODOS AUXILIARES-------------------
-//No se ha utilizado esta parte, no ha sido verificada ni probada
-  void calibracion(){
-    while (millis() < 5000) {
+  while (millis() < 5000) {
       //Leer lo que el sensor arroje
      int sensorValue = analogRead(infraCentral);
   
       // Registrar el valor máximo del sensor
       if (sensorValue > sensorMax) {
         sensorMax = sensorValue;
-      }
-      
+      }      
       // Registrar el valor mínimo del sensor
       if (sensorValue < sensorMin) {
         sensorMin = sensorValue;
       }
     }
+
+  int  sensorCentral = analogRead(infraCentral);
+  int  sensorIzq = analogRead(infraOS1);
+  int  sensorDer = analogRead(infraOS3);
+  
+  if((sensorIzq > sensorMin)&&(sensorDer > sensorMin)){
+    digitalWrite(motor_p9, 1);
+    digitalWrite(motor_p10, 0);
+    
+    digitalWrite(motor_p13, 1);
+    digitalWrite(motor_p19, 0);
+  }else{
+    digitalWrite(motor_p9, 0);
+    digitalWrite(motor_p10, 0);
+    digitalWrite(motor_p13,0);
+    digitalWrite(motor_p19, 0);
   }
+}//END LOOP
 
 
