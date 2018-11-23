@@ -1,6 +1,6 @@
-# SeguidorLinea
+## SeguidorLinea
 
-Sobre la placa con infrarrojos.
+# Sobre la placa con infrarrojos.
 
 El pin 6 es VCC; CABLE ROJO
 
@@ -14,7 +14,7 @@ El pin 2 va al sensor OS2; CABLE AZUL
 
 El pin 1 va al sensor OS3; CABLE MORADO
 
-Los pines de la placa con el driver son:
+# Los pines de la placa con el driver son:
 
 El pin 8 es VCC de 5v. (pin 6 de la placa de abajo)
 
