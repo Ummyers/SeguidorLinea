@@ -2,10 +2,15 @@
 
 Sobre la placa con infrarrojos.
 El pin 6 es VCC; CABLE ROJO
+
 El pin 5 es GND; CABLE NARANJA
+
 El pin 4 es una compuerta; CABLE  AMARILLO 
+
 El pin 3 va al sensor OS1; CABLE VERDE
+
 El pin 2 va al sensor OS2; CABLE AZUL
+
 El pin 1 va al sensor OS3; CABLE MORADO
 
 Los pines de la placa con el driver son:
